@@ -12,6 +12,7 @@ namespace RetailSolution.Services.Mapping
         public MappingProfile()
         {
             CreateMap<Employee, EmployeeDto>().ReverseMap();
+            CreateMap<EmployeeTimeLog, EmployeeTimeLogDto>().ReverseMap();
         }
     }
 }

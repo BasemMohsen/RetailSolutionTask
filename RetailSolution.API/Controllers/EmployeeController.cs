@@ -32,5 +32,19 @@ namespace RetailSolution.API.Controllers
             var employee = await _employeeService.AddEployee(employeeDto);
             return Ok(employee);
         }
+
+        [HttpPost("AddEmployeeWorkHours")]
+        public async Task<ActionResult> AddEmployeeWorkHours(EmployeeTimeLogDto employeeTimeLogDto)
+        {
+            var employee = await _employeeService.AddEployeeWorkHours(employeeTimeLogDto);
+            return Ok(employee);
+        }
+
+        [HttpGet("WorkHoursReport/{id}")]
+        public async Task<ActionResult> WorkHoursReport(Guid id)
+        {
+            var employee = await _employeeService.WorkHoursReport(id);
+            return Ok(employee);
+        }
     }
 }
