@@ -19,7 +19,7 @@ namespace RetailSolution.Services.EmployeeService
             _mapper = mapper;
         }
 
-        public async Task<ApiResponse> AddEployee(EmployeeDto employeeDto)
+        public async Task<ApiResponse> AddEmployee(EmployeeDto employeeDto)
         {
             var employee = _mapper.Map<Employee>(employeeDto);
             var result = await _employeeRepository.AddEmployee(employee);
@@ -32,7 +32,7 @@ namespace RetailSolution.Services.EmployeeService
             };
         }
 
-        public async Task<ApiResponse> AddEployeeWorkHours(EmployeeTimeLogDto employeeTimeLogDto)
+        public async Task<ApiResponse> AddEmployeeWorkHours(EmployeeTimeLogDto employeeTimeLogDto)
         {
             var employeeTimeLog = _mapper.Map<EmployeeTimeLog>(employeeTimeLogDto);
             var result = await _employeeRepository.AddEmployeeWorkHours(employeeTimeLog);

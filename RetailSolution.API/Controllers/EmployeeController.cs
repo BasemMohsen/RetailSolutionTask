@@ -29,14 +29,14 @@ namespace RetailSolution.API.Controllers
         [HttpPost("Add")]
         public async Task<ActionResult> AddEmployee(EmployeeDto employeeDto)
         {
-            var employee = await _employeeService.AddEployee(employeeDto);
+            var employee = await _employeeService.AddEmployee(employeeDto);
             return Ok(employee);
         }
 
         [HttpPost("AddEmployeeWorkHours")]
         public async Task<ActionResult> AddEmployeeWorkHours(EmployeeTimeLogDto employeeTimeLogDto)
         {
-            var employee = await _employeeService.AddEployeeWorkHours(employeeTimeLogDto);
+            var employee = await _employeeService.AddEmployeeWorkHours(employeeTimeLogDto);
             return Ok(employee);
         }
 
