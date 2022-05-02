@@ -8,9 +8,9 @@ namespace RetailSolution.Services.EmployeeService
 {
     public interface IEmployeeService
     {
-        Task<EmployeeDto> GetEmployee(Guid id);
-        Task<bool> AddEployee(EmployeeDto employeeDto);
-        Task<bool> AddEployeeWorkHours(EmployeeTimeLogDto employeeTimeLogDto);
-        Task<List<EmployeeTimeLogDto>> WorkHoursReport(Guid id);
+        Task<ApiResponse> GetEmployee(Guid id);
+        Task<ApiResponse> AddEployee(EmployeeDto employeeDto);
+        Task<ApiResponse> AddEployeeWorkHours(EmployeeTimeLogDto employeeTimeLogDto);
+        Task<ApiResponse> WorkHoursReport(Guid id);
     }
 }

@@ -19,29 +19,47 @@ namespace RetailSolution.Services.EmployeeService
             _mapper = mapper;
         }
 
-        public async Task<bool> AddEployee(EmployeeDto employeeDto)
+        public async Task<ApiResponse> AddEployee(EmployeeDto employeeDto)
         {
             var employee = _mapper.Map<Employee>(employeeDto);
             var result = await _employeeRepository.AddEmployee(employee);
-            return result;
+
+            return new ApiResponse()
+            {
+                Data = result,
+                Status = "true",
+                Message = "Success"
+            };
         }
 
-        public async Task<bool> AddEployeeWorkHours(EmployeeTimeLogDto employeeTimeLogDto)
+        public async Task<ApiResponse> AddEployeeWorkHours(EmployeeTimeLogDto employeeTimeLogDto)
         {
             var employeeTimeLog = _mapper.Map<EmployeeTimeLog>(employeeTimeLogDto);
             var result = await _employeeRepository.AddEmployeeWorkHours(employeeTimeLog);
-            return result;
+
+            return new ApiResponse()
+            {
+                Data = result,
+                Status = "true",
+                Message = "Success"
+            };
         }
 
-        public async Task<EmployeeDto> GetEmployee(Guid id)
+        public async Task<ApiResponse> GetEmployee(Guid id)
         {
             var empployee = await _employeeRepository.GetEmployee(id);
 
             var employeeDto = _mapper.Map<EmployeeDto>(empployee);
-            return employeeDto;
+            
+            return new ApiResponse()
+            {
+                Data = employeeDto,
+                Status = "true",
+                Message = "Success"
+            };
         }
 
-        public async Task<List<EmployeeTimeLogDto>> WorkHoursReport(Guid id)
+        public async Task<ApiResponse> WorkHoursReport(Guid id)
         {
             var report = await _employeeRepository.WorkHoursReport(id);
 
@@ -65,7 +83,13 @@ namespace RetailSolution.Services.EmployeeService
                     item.BreakInMinutes = breakperDay + breakPerHour;
                 }
             }
-            return reportDto;
+
+            return new ApiResponse()
+            {
+                Data = reportDto,
+                Status = "true",
+                Message = "Success"
+            };
         }
     }
 }
